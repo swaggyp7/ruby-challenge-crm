@@ -4,6 +4,7 @@ ruby "4.0.0"
 
 gem "activeadmin"
 gem "devise"
+gem "sassc-rails"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3"
 
