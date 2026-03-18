@@ -1,16 +1,15 @@
-<article class="card" id="<%= dom_id(customer) %>">
+<article class="card customer-card" id="<%= dom_id(customer) %>">
   <div class="card-content">
     <div class="media">
       <div class="media-left">
-        <figure class="image is-96x96">
+        <figure class="image is-96x96 customer-avatar">
           <% if customer.image.attached? %>
             <%= image_tag customer.image, class: "is-rounded", alt: customer.full_name %>
           <% else %>
             <div
-              class="has-background-light is-flex is-align-items-center is-justify-content-center is-rounded"
-              style="width: 96px; height: 96px;"
+              class="customer-avatar-placeholder is-flex is-align-items-center is-justify-content-center is-rounded"
             >
-              <span class="title is-4 has-text-grey-light">
+              <span class="title is-4 mb-0">
                 <%= customer.full_name.to_s.first&.upcase || "?" %>
               </span>
             </div>
@@ -19,34 +18,34 @@
       </div>
 
       <div class="media-content">
-        <p class="title is-4 mb-2"><%= customer.full_name %></p>
+        <p class="title is-4 mb-2 customer-name"><%= customer.full_name %></p>
 
         <% if customer.email.present? %>
-          <p class="mb-1">
+          <p class="mb-2 customer-meta">
             <strong>Email:</strong>
             <%= mail_to customer.email %>
           </p>
         <% end %>
 
         <% if customer.phone_number.present? %>
-          <p class="mb-1">
+          <p class="mb-2 customer-meta">
             <strong>Phone Number:</strong>
             <%= customer.phone_number %>
           </p>
         <% end %>
 
-        <p class="is-size-7 has-text-grey">
+        <p class="is-size-7 customer-timestamp">
           Create at <%= l(customer.created_at, format: :long) %>
         </p>
       </div>
     </div>
 
-    <div class="content">
+    <div class="content customer-notes">
       <p class="has-text-weight-semibold mb-2">Note</p>
       <% if customer.notes.present? %>
         <p><%= simple_format(customer.notes) %></p>
       <% else %>
-        <p class="has-text-grey">Doesn't have note yet</p>
+        <p class="customer-empty-text">Doesn't have note yet</p>
       <% end %>
     </div>
   </div>

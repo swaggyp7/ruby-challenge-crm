@@ -13,3 +13,188 @@
  *= require_tree .
  *= require_self
  */
+
+:root {
+  --crm-bg-top: #f5ecdf;
+  --crm-bg-middle: #eef4ec;
+  --crm-bg-bottom: #e5efe8;
+  --crm-surface: rgba(255, 250, 244, 0.92);
+  --crm-surface-strong: #fffaf3;
+  --crm-surface-soft: rgba(255, 255, 255, 0.55);
+  --crm-border: rgba(120, 88, 59, 0.12);
+  --crm-shadow: 0 24px 60px rgba(88, 68, 47, 0.14);
+  --crm-text: #2f241b;
+  --crm-muted: #72614f;
+  --crm-accent: #8b5e34;
+  --crm-accent-strong: #6f4925;
+  --crm-accent-soft: #f3e1cc;
+}
+
+html {
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.78), transparent 28%),
+    linear-gradient(180deg, var(--crm-bg-top) 0%, var(--crm-bg-middle) 48%, var(--crm-bg-bottom) 100%);
+}
+
+body.crm-app {
+  min-height: 100%;
+  margin: 0;
+  color: var(--crm-text);
+  background: transparent;
+  font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.crm-shell {
+  min-height: 100vh;
+  padding: 2rem 0 3rem;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.58), transparent 22%),
+    radial-gradient(circle at 100% 20%, rgba(242, 228, 207, 0.7), transparent 24%);
+}
+
+.crm-app,
+.crm-app .title,
+.crm-app .subtitle,
+.crm-app .content,
+.crm-app .notification,
+.crm-app .label,
+.crm-app p,
+.crm-app strong {
+  color: var(--crm-text);
+}
+
+.crm-app a {
+  color: var(--crm-accent);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.14em;
+}
+
+.crm-app a:hover {
+  color: var(--crm-accent-strong);
+}
+
+.customers-page {
+  position: relative;
+}
+
+.customers-page .container {
+  max-width: 1240px;
+}
+
+.crm-app .customers-hero {
+  padding: 2rem;
+  border: 1px solid var(--crm-border);
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(255, 249, 241, 0.95), rgba(246, 238, 229, 0.88)),
+    var(--crm-surface);
+  box-shadow: var(--crm-shadow);
+  backdrop-filter: blur(10px);
+}
+
+.customers-eyebrow {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--crm-accent);
+}
+
+.crm-app .customers-title {
+  color: var(--crm-text);
+  font-size: clamp(2.4rem, 4vw, 4.2rem);
+  line-height: 1;
+}
+
+.crm-app .customers-subtitle {
+  color: var(--crm-muted) !important;
+  font-size: 1.05rem;
+}
+
+.crm-app .customer-card {
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--crm-border);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 247, 0.98), rgba(248, 241, 233, 0.96)),
+    var(--crm-surface);
+  box-shadow: var(--crm-shadow);
+  backdrop-filter: blur(10px);
+}
+
+.crm-app .customer-card .card-content {
+  padding: 2rem;
+}
+
+.crm-app .customer-avatar img,
+.crm-app .customer-avatar-placeholder {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.crm-app .customer-avatar img {
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 10px 24px rgba(109, 81, 50, 0.16);
+}
+
+.customer-avatar-placeholder {
+  background: linear-gradient(135deg, #f7e9d8 0%, var(--crm-accent-soft) 100%);
+  color: var(--crm-accent);
+}
+
+.crm-app .customer-name {
+  color: var(--crm-text);
+  line-height: 1.15;
+}
+
+.crm-app .customer-meta,
+.crm-app .customer-meta strong {
+  color: var(--crm-text);
+}
+
+.crm-app .customer-meta strong,
+.crm-app .customer-notes .has-text-weight-semibold {
+  color: var(--crm-accent-strong);
+}
+
+.crm-app .customer-timestamp,
+.crm-app .customer-empty-text {
+  color: var(--crm-muted) !important;
+}
+
+.crm-app .customer-notes {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(120, 88, 59, 0.1);
+  color: var(--crm-text);
+}
+
+.crm-app .customer-notes p {
+  color: inherit;
+}
+
+.crm-app .customers-empty-state {
+  border: 1px solid var(--crm-border);
+  border-radius: 28px;
+  background: var(--crm-surface-strong);
+  box-shadow: var(--crm-shadow);
+}
+
+@media screen and (max-width: 768px) {
+  .crm-shell {
+    padding-top: 1rem;
+  }
+
+  .crm-app .customers-hero,
+  .crm-app .customer-card .card-content {
+    padding: 1.5rem;
+  }
+
+  .crm-app .customers-title {
+    font-size: 2.3rem;
+  }
+}
