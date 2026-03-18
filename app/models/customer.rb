@@ -1,6 +1,8 @@
 class Customer < ApplicationRecord
   validates :full_name, presence: true
 
+  has_one_attached :image
+
   def self.ransackable_attributes(auth_object = nil)
     ["id", "full_name", "email", "phone_number", "notes", "created_at", "updated_at"]
   end
